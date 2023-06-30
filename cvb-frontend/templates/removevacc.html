@@ -1,0 +1,78 @@
+{% include 'head.html' %}
+
+<body class="g-sidenav-show">
+
+    {% include 'adminnav.html' %}
+
+    <!-- <div class="main-content" id="panel">
+        <div class="container-fluid pt-3">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <h2 class="mb-0">Remove Vaccination Centre</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="/admin/dashboard/removevacc" method="POST">
+                        <h6 class="heading-small text-muted mb-4">Centre information</h6>
+                        <div>
+                            <div class="row">
+                                <select name="centre_name">
+                                    {% for vacc_centre in vacc_centres %}
+                                    <option value="{{ vacc_centre.name }}" SELECTED>{{ vacc_centre.name }}</option>
+                                    {% endfor %}
+                                </select>
+                                <div class="btn-block">
+                                    <button type="submit" class="form-control button"
+                                        placeholder="Submit">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="main-content" id="panel">
+        <div class="container">
+          <div class="card mb-4">
+            <div class="card-header">
+              <div class="row align-items-center">
+                <div class="col-12">
+                  <h2 class="card-title mb-0">Remove Vaccination Centre</h2>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <form action="/admin/dashboard/removevacc" method="POST">
+                <div class="form-group">
+                  <label for="centre_name" class="heading-small text-muted mb-4">Centre Information</label>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <select name="centre_name" class="form-control">
+                        {% for vacc_centre in vacc_centres %}
+                        <option value="{{ vacc_centre.name }}">{{ vacc_centre.name }}</option>
+                        {% endfor %}
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <button type="submit" class="btn btn-danger">Remove</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+</body>
+<script>
+
+    '{% if alert_msg %}'
+    alert("{{ alert_msg }}");
+    '{% endif %}'
+
+</script>

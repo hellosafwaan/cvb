@@ -1,0 +1,114 @@
+<!-- {% include 'head.html' %}
+
+<body class="g-sidenav-show">
+
+    {% include 'usernav.html' %}
+
+    <div class="main-content" id="panel">
+        <div class="container-fluid pt-3">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <h2 class="mb-0">Centre Details</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+
+                    <h6 class="heading-small text-muted mb-4">Dosage information</h6>
+                    <table>
+                        <tr>
+                            <th>Centre Name</th>
+                            <th>Dosage Available</th>
+                        </tr>
+                        {% for centre in data %}
+
+                        <tr>
+                            <td>{{ centre.name }}</td>
+                            <td>{{ centre.dosage }}</td>
+                        </tr>
+                        {% endfor %}
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    '{% if alert_msg %}'
+    alert("{{ alert_msg }}");
+    '{% endif %}'
+
+</script> -->
+
+{% include 'head.html' %}
+
+
+<style>
+    /* Custom CSS styles for the table */
+    .table {
+        font-size: 14px;
+    }
+
+    .table thead th {
+        background-color: #f8f9fa;
+        color: #333;
+    }
+
+    .table tbody td {
+        background-color: #fff;
+    }
+</style>
+
+
+<body class="g-sidenav-show">
+    {% include 'usernav.html' %}
+
+    <div class="main-content" id="panel">
+        <div class="container-fluid pt-3">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <h2 class="mb-0">Centre Details</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h6 class="heading-small text-muted mb-4">Dosage information</h6>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Centre Name</th>
+                                    <th>Dosage Available</th>
+                                    <th>Working Hours</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for centre in data %}
+                                <tr>
+                                    <td>{{ centre.name }}</td>
+                                    <td>{{ centre.dosage }}</td>
+                                    <td>{{ centre.start_time }} - {{ centre.end_time }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    '{% if alert_msg %}'
+    alert("{{ alert_msg }}");
+    '{% endif %}'
+
+</script>
