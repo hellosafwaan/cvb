@@ -122,7 +122,8 @@ def slotbook():
         data = request.form
 
         res = requests.post(BACKEND_URL + "/user/slotbook", json=data)
-
+        msg = res.json()
+        msg = msg['message']
         if res.status_code == 200:
             return render_template(
                 "slotbook.html",
@@ -131,7 +132,7 @@ def slotbook():
             )
 
         return render_template(
-            "slotbook.html", alert_msg="Error booking slot", vacc_centres=data_vacc.json()
+            "slotbook.html", alert_msg= msg, vacc_centres=data_vacc.json()
         )
 
     return render_template("slotbook.html", vacc_centres=data_vacc.json())
